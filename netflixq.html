@@ -16,6 +16,11 @@ body {
     padding: 7px;
 }
 
+#footer {
+    font-size: .9em;
+    text-align: right;
+}
+
 #logo {
     background-color: #000;
     color: #fff;
@@ -56,7 +61,9 @@ li {
 img.remove {
     cursor:pointer;
     vertical-align: middle;
-    padding-right: 10px;
+    margin-top: 5px;
+    padding-left: 10px;
+    float: right;
 }
 </style>
 
@@ -69,9 +76,9 @@ img.remove {
         <a target="_blank" href="http://github.com/meeech/netflixq" id="logo">
             netflix<span class="q">Q</span>
         </a>
-
+        <!-- all the dummy li's will go away when in real use. But when testing, and localstore is empty, this is handy -->
         <ul id="netflixq">
-            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
+            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">Loading...</a></li>
             <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
             <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
             <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
@@ -79,7 +86,7 @@ img.remove {
         </ul>
         
         <div id="footer">
-            <a href="http://github.com/meeech/netflixq#readme">About</a>
+            <a target="_blank" href="http://github.com/meeech/netflixq#readme">About</a> | by <a target="_blank" href="http://www.twitter.com/meeech">@meeech</a>
         </div>
     </div>
 
