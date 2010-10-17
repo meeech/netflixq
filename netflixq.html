@@ -119,9 +119,6 @@ if(lis.length > 0) {
 
 //Clicks on the remove box
 Y.one(selectors.Q_LIST).delegate('click', function(e) {
-    //e.currentTarget -  defined target element - one we looking for
-    //e.target - The element that was really clicked
-    //e.container - the node we delegated on
     var toRemove = e.target.ancestor('div');
 
     var nq = getList();
@@ -131,7 +128,7 @@ Y.one(selectors.Q_LIST).delegate('click', function(e) {
     saveList(nq);
 
     toRemove.transition({
-        duration: 1, // seconds
+        duration: 0.5, // seconds
         easing: 'ease-out',
         height: 0,
         padding: 0,
@@ -141,27 +138,6 @@ Y.one(selectors.Q_LIST).delegate('click', function(e) {
     });
 
 }, selectors.REMOVE_TARGET);
-
-
-
-var node = Y.one('#container');
- 
-node.all('a').on('click', function(e) {
-    e.preventDefault();
-    
-    node.transition({
-        duration: 3, // seconds
-        easing: 'ease-out',
-        height: 0,
-        width: 0,
-        left: '150px',
-        top: '100px',
-        opacity: 0
-    }, function() {
-        node.destroy(true); 
-    });
-});
-
 
 //End closure
 });
