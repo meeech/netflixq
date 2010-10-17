@@ -78,10 +78,10 @@ img.remove {
 </head>
 <body>
     <div id="container">
-        <a target="_blank" href="http://github.com/meeech/netflixq" id="logo">
-            netflix<span class="q">Q</span>
-        </a>
-        <!-- all the dummy li's will go away when in real use. But when testing, and localstore is empty, this is handy -->
+        <div>
+            <a target="_blank" href="http://github.com/meeech/netflixq" id="logo">netflix<span class="q">Q</span></a>
+        </div>        
+    <!-- all the dummy li's will go away when in real use. But when testing, and localstore is empty, this is handy -->
         <div id="netflixq">
             <div><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="http://www.netflix.ca}">Your list is empty.</a></div>
             <div><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="http://www.netflix.ca">Go to netflix.ca and</a></div>
@@ -113,7 +113,7 @@ function saveList (toSave) {
 }
 
 var lis = [],
-    liTemp = '<li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>';
+    liTemp = '<div id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></div>';
 
 Y.each(getList(), function(v,k) {
     lis.push(Y.Lang.sub(liTemp, v));
