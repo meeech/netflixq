@@ -14,17 +14,13 @@ Y.use('node', function(Y) {
 
         //Delegate to catch all netflixq clicks
         Y.one(selectors.BUTTONS_CONTAINER).delegate('click', function(e) {
-            //e.currentTarget -  defined target element - one we looking for
-            //e.target - The element that was really clicked
-            //e.container - the node we delegated on
-            //Figure out what was clicked. 
-            
-            // Movie Grid
-            // agMovieSet agMovieGrid agMovieGridCol5
+            //Movie Grid
+            //agMovieSet agMovieGrid agMovieGridCol5
             //div.agMovie
+
             //Movie Table
             //agMovieSet agMovieTable
-            // tr.agMovie
+            //tr.agMovie
             var row = e.target.ancestor('.agMovie');
             var link = row.one('.title a');
             var movie = {
@@ -32,12 +28,11 @@ Y.use('node', function(Y) {
                 title: link.get('innerText'),
                 url: link.get('href')
             };
+            // window.console.log(movie);
+            chrome.extension.sendRequest(movie, function(response) {
+                window.console.log(response);
+            });
             
-            
-            window.console.log(link);
-            window.console.log(movie);
-            
-            //Post message 
         }, selectors.BUTTON_NETFLIXQ);
         
         //Y.all('.btnWrap').setContent('test!');
