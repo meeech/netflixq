@@ -6,7 +6,7 @@ Y.use('node', function(Y) {
         BUTTON_NETFLIXQ: '.netflixq'
     };
 
-    var button = '<a class="netflixq btn btn-30 watchlk">netflixq</a>';
+    var button = '<a class="netflixq btn {btn-size} watchlk">netflixq</a>';
 
     var init = function() {
 
