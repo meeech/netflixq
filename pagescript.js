@@ -6,7 +6,7 @@ var selectors = {
     BUTTON_NETFLIXQ: '.netflixq'
 };
 
-var button = '<a class="netflixq btn {btn-size} watchlk">netflixq</a>';
+var button = '<a class="netflixq btn {btn-size} watchlk">netflixQ</a>';
 
 // netflix creates some ids like m70102568_0, m70102568_1 and so forth for different elements
 // in the page for a particular movie. use this to extract the uuid part.
