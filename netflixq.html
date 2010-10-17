@@ -17,16 +17,18 @@ body {
 }
 
 #footer {
+    padding-top: 15px;
     font-size: .9em;
-    text-align: right;
+    text-align: left;
 }
 
 #logo {
     background-color: #000;
     color: #fff;
     font-weight: bold;
-    float: right;
+/*    float: left;*/
     padding: 7px;
+/*    height: ;*/
 }
 
 .q {
@@ -35,7 +37,7 @@ body {
 
 #netflixq {
     padding: 0;
-    margin-top: 30px;
+/*    margin-top: 30px;*/
     min-width: 300px;
 }
 
@@ -64,6 +66,11 @@ img.remove {
     padding-left: 10px;
     float: right;
 }
+
+.right {
+    float: right;
+}
+
 </style>
 
     <script type="text/javascript" src="
@@ -72,10 +79,7 @@ img.remove {
 </head>
 <body>
     <div id="container">
-        <div>
-            <a target="_blank" href="http://github.com/meeech/netflixq" id="logo">netflix<span class="q">Q</span></a>
-        </div>        
-    <!-- all the dummy li's will go away when in real use. But when testing, and localstore is empty, this is handy -->
+        <!-- all the dummy content will go away when in real use. But when testing, and localstore is empty, this is handy -->
         <div id="netflixq">
             <div><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="http://www.netflix.ca}">Your list is empty.</a></div>
             <div><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="http://www.netflix.ca">Go to netflix.ca and</a></div>
@@ -83,8 +87,12 @@ img.remove {
         </div>
         
         <div id="footer">
-            <a target="_blank" href="http://github.com/meeech/netflixq#readme">about</a> | by <a target="_blank" href="http://www.twitter.com/meeech">@meeech</a>
+            <a target="_blank" href="http://github.com/meeech/netflixq" id="logo">netflix<span class="q">Q</span></a>
+            <div class='right'>
+                <a target="_blank" href="http://github.com/meeech/netflixq#readme">about</a> | by <a target="_blank" href="http://www.twitter.com/meeech">@meeech</a>
+            </div>
         </div>
+
     </div>
 
 <script type="text/javascript" charset="utf-8">
