@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>NetflixQ</title>
+<title>netflixQ</title>
 <style>
 #container {
 }
+
 #netflixq {
     list-style: none;
+    padding: 0;
     width: 300px;
+}
+
+a {
+    color: #390007;
+    text-decoration:none;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+li {
+    border-bottom: 1px solid #eee;
+    font-family: helvetica,sans-serif;
+    font-size: 1.1em;
+    padding: 5px;
+}
+
+img.remove {
+    cursor:pointer;
+    vertical-align: middle;
+    padding-right: 10px;
 }
 </style>
 
@@ -18,6 +42,11 @@
 <body>
     <div id="container">
         <ul id="netflixq">
+            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
+            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
+            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
+            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
+            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
         </ul>
     </div>
     <div id="console"></div>
@@ -35,13 +64,15 @@
     }
 
     var lis = [],
-        liTemp = '<li id="{id}"><img class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>';
+        liTemp = '<li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>';
 
     Y.each(getList(), function(v,k) {
         lis.push(Y.Lang.sub(liTemp, v));
     });
 
-    Y.one('#netflixq').setContent(lis.join(''));
+    if(lis.length > 0) {
+        Y.one('#netflixq').setContent(lis.join(''));
+    }
     
     Y.one('#netflixq').delegate('click', function(e) {
         //e.currentTarget -  defined target element - one we looking for
