@@ -14,11 +14,11 @@ Chrome Extension to keep a list of Netflix movies to watch.
 Why?
 ----
 
-Just subscribed to [netflix.ca](http://www.netflix.ca), and was browsing the movies. I couldn't find a 'digital' queue for what I wanted to watch later. Seems like an obvious feature for them to have built in, so wonder if I'm missing something? 
+Just subscribed to [netflix.ca](http://www.netflix.ca), and was browsing the movies. I couldn't find a 'digital' queue for what I wanted to watch later. Seems like an obvious feature for them to have built in, so wonder if I'm missing something obvious? 
 
-I suppose I could just bookmark the movies, but I wanted to make a chrome extension. This seemed like a simple enough use case.
+In any case, I suppose I could just bookmark the movies, but I wanted to make a chrome extension. This seemed like a simple enough use case.
 
-Nothing to fancy right now, will add stuff as needed, or upon request.
+Nothing to fancy right now - does what it says, will add stuff as needed, or upon request.
 
 Who?
 ----
