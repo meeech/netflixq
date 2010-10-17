@@ -4,8 +4,6 @@
 <title>NetflixQ</title>
 <style>
 #container {
-    height: 500px;
-    width: 500px;
 }
 #netflixq {
     list-style: none;
@@ -20,36 +18,25 @@
 <body>
     <div id="container">
         <ul id="netflixq">
-            <li><a href="#">City of Ember</a></li>
         </ul>
     </div>
     <div id="console"></div>
 
 <script type="text/javascript" charset="utf-8">
-    Y.use('dd-drag', 'YUI~dump', function(Y) {});
-    
-    Y.one('#console').setContent('hello');
-    
-
-    //We can assume capabilities of chrome browser, but we'll do it this way anyhow.
+    var nq = {};
     var lStore = (('localStorage' in window) && window['localStorage'] !== null) ? window.localStorage : false ;
-    // var queue = 
-    // 
-    // if(lStore && lStore.getItem('NetflixQList')) {
-    //     $('.prev').fadeIn(300).click(function(e) {
-    //         e.preventDefault();
-    //         input.val(lStore.getItem('previous'));
-    //         form.submit();
-    //     });
-    // }
-    // 
+    if(lStore && lStore.getItem('NetflixQList')) {
+        nq = JSON.parse(lStore.getItem('NetflixQList'));
+    }
+    
+    var lis = [],
+        liTemp = '<li><a target="_blank" href="{url}">{title}</a>';
 
-    var init = function() {
-        //Load Array of Data
-        //Add new movie
-        //Paint List
-            
-    };
+    Y.each(nq, function(v,k) {
+        lis.push(Y.Lang.sub(liTemp, v));
+    });
+
+    Y.one('#netflixq').setContent(lis.join(''));    
     
     Y.on('domready', init);
 

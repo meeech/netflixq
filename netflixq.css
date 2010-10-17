@@ -1,5 +1,5 @@
+/* Override some netflix.ca defaults for btns*/
 .btn.netflixq {
-    /*Override some netflix defaults for btns*/
     margin-bottom: 7px !important;
     margin-top: 7px !important;
     cursor: pointer;

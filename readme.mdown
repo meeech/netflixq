@@ -3,23 +3,15 @@ NetflixQ
 
 Chrome Extension to keep a list of Netflix movies I'd like to watch. 
 
-I suppose I could just bookmark them, and I wanted to play with making an extension,
+Just subscribed to Netflix.ca, and was browsing the movies. I couldn't find a 'digital' queue for what I wanted to watch later. Seems like an obvious feature for them to have built in, so wonder if I'm missing something.
 
-Seems like a simple enough use case.
+I suppose I could just bookmark them, but I wanted to make a chrome extension. This seemed like a simple enough use case.
 
-* When clicked on a Netflix page, will add the to the list, and display the list. 
-* When clicked on an NON-Netflix, will display the list. 
+Nothing fancy right now, will add stuff as needed.
 
-todo
-----
+**Features**
 
-* Change that behaviour. Really, want click to just add it to the list, don't know if we have to show the list.
-* Learn how to make contextual menu instead for the icon, so view can be separate, at anytime. 
-
-tips
-----
-
-* No need for onload checking in general. I used onload, and couldn't figure out why the script trigged on some pages but not others.    
-Just look at run\_at property in manifest. http://code.google.com/chrome/extensions/content_scripts.html
+* Add a **netflixq** button under Play button. Click that, and it will add to your list. 
+* Click on the Yellow Star icon in your toolbar, and you will see a list of links to the movies you added.
 
 

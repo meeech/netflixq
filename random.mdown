@@ -1,0 +1,5 @@
+tips (for chrome extensions)
+----------------------------
+
+* No need for onload checking in general. I used onload, and couldn't figure out why the script trigged on some pages but not others.    
+Just look at run\_at property in manifest. http://code.google.com/chrome/extensions/content_scripts.html
