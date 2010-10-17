@@ -1,17 +1,21 @@
 <html>
 <script>
 var lStore = (('localStorage' in window) && window['localStorage'] !== null) ? window.localStorage : false ;
-
 var nq = {};
 
-if(lStore && lStore.getItem('NetflixQList')) {
-    nq = JSON.parse(lStore.getItem('NetflixQList'));
+function getList() {
+    return JSON.parse(lStore.getItem('NetflixQList'));
+}
+
+function saveList (toSave) {
+    lStore.setItem('NetflixQList', JSON.stringify(toSave));
 }
 
 chrome.extension.onRequest.addListener( 
     function(request,sender, sendResponse) {
+        var nq = getList();
         nq[request.id] = request;
-        lStore.setItem('NetflixQList', JSON.stringify(nq));
+        saveList(nq);
         sendResponse(nq);
     }
 );    

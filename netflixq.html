@@ -30,7 +30,7 @@
     }
     
     var lis = [],
-        liTemp = '<li><a target="_blank" href="{url}">{title}</a>';
+        liTemp = '<li><img class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a> <a class="remove"></a>';
 
     Y.each(nq, function(v,k) {
         lis.push(Y.Lang.sub(liTemp, v));

@@ -31,7 +31,7 @@ Y.use('node', function(Y) {
             };
 
             chrome.extension.sendRequest(movie, function(response) {
-                //Disable/remove the button.
+                //Disable/remove the button?.
                 // window.console.log(response);
             });
             
