@@ -40,8 +40,6 @@ body {
     min-width: 300px;
 }
 
-
-
 a {
     color: #390007;
     text-decoration:none;
@@ -52,10 +50,14 @@ a:hover {
 }
 
 li {
+    height: 30px;
+    min-height: 30px;
+    display: block;
+    border: 1px solid red;
     border-bottom: 1px solid #eee;
     font-family: helvetica,sans-serif;
-    font-size: 1.1em;
-    padding: 5px;
+/*    font-size: 1.1em;*/
+/*    padding: 5px;*/
 }
 
 img.remove {
@@ -84,14 +86,18 @@ img.remove {
         </ul>
         
         <div id="footer">
-            <a target="_blank" href="http://github.com/meeech/netflixq#readme">About</a> | by <a target="_blank" href="http://www.twitter.com/meeech">@meeech</a>
+            <a target="_blank" href="http://github.com/meeech/netflixq#readme">about</a> | by <a target="_blank" href="http://www.twitter.com/meeech">@meeech</a>
         </div>
     </div>
 
 <script type="text/javascript" charset="utf-8">
 // Create new YUI instance, and populate it with the required modules
-YUI().use('node', function(Y) {
+Y.use('node', function(Y) {
 //Begin Closure
+var selectors = {
+    Q_LIST: '#netflixq',
+    REMOVE_TARGET: 'img.remove'
+};
 
 var lStore = (('localStorage' in window) && window['localStorage'] !== null) ? window.localStorage : false ;
 
@@ -111,20 +117,31 @@ Y.each(getList(), function(v,k) {
 });
 
 if(lis.length > 0) {
-    Y.one('#netflixq').setContent(lis.join(''));
+    Y.one(selectors.Q_LIST).setContent(lis.join(''));
 }
 
 //Clicks on the remove box
-Y.one('#netflixq').delegate('click', function(e) {
+Y.one(selectors.Q_LIST).delegate('click', function(e) {
     //e.currentTarget -  defined target element - one we looking for
     //e.target - The element that was really clicked
     //e.container - the node we delegated on
     var toRemove = e.target.ancestor('li');
+
     var nq = getList();
-    delete nq[toRemove.get('id')];
+    if(!Y.Lang.isNull(nq)) {
+        delete nq[toRemove.get('id')];
+    }
     saveList(nq);
-    toRemove.remove();        
-}, 'img.remove');
+    toRemove.transition({
+        // opacity: 0,
+        height: 0,
+        duration: 1
+    }, 
+    function() {
+        toRemove.remove();
+    });
+
+}, selectors.REMOVE_TARGET);
 
 
 //End closure
