@@ -10,10 +10,6 @@ body {
 }
 
 #container {
-    overflow: hidden;
-/*    height: 300px;*/
-/*    width: 200px;*/
-    border-radius: 5px;
     border: 5px solid #b9090b;
     border-radius: 7px;
     padding: 7px;
@@ -37,7 +33,6 @@ body {
 }
 
 #netflixq {
-    list-style: none;
     padding: 0;
     margin-top: 30px;
     min-width: 300px;
@@ -54,19 +49,18 @@ a:hover {
 
 #netflixq div {
     overflow: hidden;
-    border: 1px solid red;
-/*    border-bottom: 1px solid #eee;*/
-width: 100%;
-height: 30px;
+    border-bottom: 1px solid #eee;
+    width: 99%;
+    height: 20px;
     font-family: helvetica,sans-serif;
-/*    font-size: 1.1em;*/
-/*    padding: 5px;*/
+    font-size: 1.1em;
+    padding: 5px;
 }
 
 img.remove {
     cursor:pointer;
     vertical-align: middle;
-    margin-top: 5px;
+/*    margin-top: 5px;*/
     padding-left: 10px;
     float: right;
 }
@@ -140,21 +134,11 @@ Y.one(selectors.Q_LIST).delegate('click', function(e) {
         duration: 1, // seconds
         easing: 'ease-out',
         height: 0,
+        padding: 0,
         opacity: 0
     }, function() {
-        toRemove.destroy(true); 
+        toRemove.remove().destroy(); 
     });
-
-
-
-    // toRemove.transition({
-    //     // opacity: 0,
-    //     height: 0,
-    //     duration: 1
-    // }, 
-    // function() {
-    //     toRemove.remove();
-    // });
 
 }, selectors.REMOVE_TARGET);
 
