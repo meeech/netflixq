@@ -12,7 +12,7 @@ Y.use('node', function(Y) {
 
     var init = function() {
 
-        Y.all(selectors.PLAY_WRAPPER).insert(button);
+        Y.all(selectors.PLAY_WRAPPER).filter(':not(.mltBtn-trailer)').insert(button);
 // window.console.log(Y.one(selectors.BUTTONS_CONTAINER));
         //Delegate to catch all netflixq clicks
         Y.one(selectors.BUTTONS_CONTAINER).delegate('click', function(e) {
