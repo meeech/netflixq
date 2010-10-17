@@ -37,7 +37,7 @@ body {
     list-style: none;
     padding: 0;
     margin-top: 30px;
-    width: 300px;
+    min-width: 300px;
 }
 
 
@@ -78,11 +78,9 @@ img.remove {
         </a>
         <!-- all the dummy li's will go away when in real use. But when testing, and localstore is empty, this is handy -->
         <ul id="netflixq">
-            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">Loading...</a></li>
-            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
-            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
-            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
-            <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
+            <li><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="http://www.netflix.ca}">Your list is empty.</a></li>
+            <li><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="http://www.netflix.ca">Go to netflix.ca and</a></li>
+            <li><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="http://www.netflix.ca">use the netflixQ button.</a></li>
         </ul>
         
         <div id="footer">
@@ -91,39 +89,47 @@ img.remove {
     </div>
 
 <script type="text/javascript" charset="utf-8">
+// Create new YUI instance, and populate it with the required modules
+YUI().use('node', function(Y) {
+//Begin Closure
 
-    var lStore = (('localStorage' in window) && window['localStorage'] !== null) ? window.localStorage : false ;
+var lStore = (('localStorage' in window) && window['localStorage'] !== null) ? window.localStorage : false ;
 
-    function getList() {
-        return JSON.parse(lStore.getItem('NetflixQList'));
-    }
+function getList() {
+    return JSON.parse(lStore.getItem('NetflixQList'));
+}
 
-    function saveList (toSave) {
-        lStore.setItem('NetflixQList', JSON.stringify(toSave));
-    }
+function saveList (toSave) {
+    lStore.setItem('NetflixQList', JSON.stringify(toSave));
+}
 
-    var lis = [],
-        liTemp = '<li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>';
+var lis = [],
+    liTemp = '<li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>';
 
-    Y.each(getList(), function(v,k) {
-        lis.push(Y.Lang.sub(liTemp, v));
-    });
+Y.each(getList(), function(v,k) {
+    lis.push(Y.Lang.sub(liTemp, v));
+});
 
-    if(lis.length > 0) {
-        Y.one('#netflixq').setContent(lis.join(''));
-    }
-    
-    //Clicks on the remove box
-    Y.one('#netflixq').delegate('click', function(e) {
-        //e.currentTarget -  defined target element - one we looking for
-        //e.target - The element that was really clicked
-        //e.container - the node we delegated on
-        var toRemove = e.target.ancestor('li');
-        var nq = getList();
-        delete nq[toRemove.get('id')];
-        saveList(nq);
-        toRemove.remove();        
-    }, 'img.remove');
+if(lis.length > 0) {
+    Y.one('#netflixq').setContent(lis.join(''));
+}
+
+//Clicks on the remove box
+Y.one('#netflixq').delegate('click', function(e) {
+    //e.currentTarget -  defined target element - one we looking for
+    //e.target - The element that was really clicked
+    //e.container - the node we delegated on
+    var toRemove = e.target.ancestor('li');
+    var nq = getList();
+    delete nq[toRemove.get('id')];
+    saveList(nq);
+    toRemove.remove();        
+}, 'img.remove');
+
+
+//End closure
+});
+
 </script>
 </body>
 </html>

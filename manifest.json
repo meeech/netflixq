@@ -1,6 +1,6 @@
 {
   "name": "netflixQ",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Browsing Netflix.ca, wanted to keep a list of to watch. Seems weird that's not built in, or I just can't find it :/.",
   "background_page": "background.html",
   "permissions": [
