@@ -15,3 +15,11 @@ todo
 
 * Change that behaviour. Really, want click to just add it to the list, don't know if we have to show the list.
 * Learn how to make contextual menu instead for the icon, so view can be separate, at anytime. 
+
+tips
+----
+
+* No need for onload checking in general. I used onload, and couldn't figure out why the script trigged on some pages but not others.    
+Just look at run\_at property in manifest. http://code.google.com/chrome/extensions/content_scripts.html
+
+

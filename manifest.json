@@ -1,12 +1,16 @@
 {
   "name": "Netflix-Q",
-  "version": "1.0",
+  "version": "0.0.6",
   "description": "Browsing Netflix, wanted to keep a list of to watch. Seems weird that's not built in, or I just can't find it.",
   "browser_action": {
     "default_icon": "star_black.png",
     "popup": "netflixq.html"
   },
-  "permissions": [
-    "http://www.netflix.ca/"
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["simpleyui-min.js", "pagescript.js"],
+      "css": ["netflixq.css"]
+    }
   ]
 }
