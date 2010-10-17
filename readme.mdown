@@ -1,17 +1,29 @@
 NetflixQ
 ========
 
-Chrome Extension to keep a list of Netflix movies I'd like to watch. 
+What?
+-----
 
-Just subscribed to Netflix.ca, and was browsing the movies. I couldn't find a 'digital' queue for what I wanted to watch later. Seems like an obvious feature for them to have built in, so wonder if I'm missing something.
-
-I suppose I could just bookmark them, but I wanted to make a chrome extension. This seemed like a simple enough use case.
-
-Nothing fancy right now, will add stuff as needed.
+Chrome Extension to keep a list of Netflix movies to watch. 
 
 **Features**
 
-* Add a **netflixq** button under Play button. Click that, and it will add to your list. 
-* Click on the Yellow Star icon in your toolbar, and you will see a list of links to the movies you added.
+* Adds a **netflixQ** button under Play button. Click that, and it will add to your list.
+* Click on the Yellow Star icon in your toolbar, and you will see your list of movies you want to watch.
 
+Why?
+----
+
+Just subscribed to [netflix.ca](http://www.netflix.ca), and was browsing the movies. I couldn't find a 'digital' queue for what I wanted to watch later. Seems like an obvious feature for them to have built in, so wonder if I'm missing something? 
+
+I suppose I could just bookmark the movies, but I wanted to make a chrome extension. This seemed like a simple enough use case.
+
+Nothing to fancy right now, will add stuff as needed, or upon request.
+
+Who?
+----
+
+If you have any issues or problems to report, best way is through the github repo dedicated to this extension: [http://github.com/meeech/netflixq](http://github.com/meeech/netflixq). 
+
+Feedback welcome through github, or via twitter: @meeech
 
