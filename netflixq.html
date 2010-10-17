@@ -5,8 +5,10 @@
 <style>
 /*Netflix Red: #b9090b*/
 body {
+    font-family: helvetica,sans-serif;    
     margin: 3px;
 }
+
 #container {
     border-radius: 5px;
     border: 5px solid #b9090b;
@@ -14,11 +16,26 @@ body {
     padding: 7px;
 }
 
+#logo {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    padding: 7px;
+}
+
+.q {
+    color: #b9090b;
+}
+
 #netflixq {
     list-style: none;
     padding: 0;
+    margin-top: 30px;
     width: 300px;
 }
+
+
 
 a {
     color: #390007;
@@ -49,6 +66,10 @@ img.remove {
 </head>
 <body>
     <div id="container">
+        <a target="_blank" href="http://github.com/meeech/netflixq" id="logo">
+            netflix<span class="q">Q</span>
+        </a>
+
         <ul id="netflixq">
             <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
             <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
@@ -56,8 +77,11 @@ img.remove {
             <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
             <li id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></li>
         </ul>
+        
+        <div id="footer">
+            <a href="http://github.com/meeech/netflixq#readme">About</a>
+        </div>
     </div>
-    <div id="console"></div>
 
 <script type="text/javascript" charset="utf-8">
 
