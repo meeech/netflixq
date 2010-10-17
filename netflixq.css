@@ -1,4 +1,6 @@
 .btn.netflixq {
-    margin-top: 10px !important;
+    /*Override some netflix defaults for btns*/
+    margin-bottom: 7px !important;
+    margin-top: 7px !important;
     cursor: pointer;
 }
