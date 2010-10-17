@@ -3,10 +3,14 @@
 <head>
 <title>NetflixQ</title>
 <style>
-    #netflixq {
-        list-style: none;
-        width: 300px;
-    }
+#container {
+    height: 500px;
+    width: 500px;
+}
+#netflixq {
+    list-style: none;
+    width: 300px;
+}
 </style>
 
     <script type="text/javascript" src="
@@ -14,25 +18,31 @@
 
 </head>
 <body>
-    <div>
+    <div id="container">
         <ul id="netflixq">
             <li><a href="#">City of Ember</a></li>
         </ul>
     </div>
+    <div id="console"></div>
 
 <script type="text/javascript" charset="utf-8">
+    Y.use('dd-drag', 'YUI~dump', function(Y) {});
+    
+    Y.one('#console').setContent('hello');
+    
+
     //We can assume capabilities of chrome browser, but we'll do it this way anyhow.
     var lStore = (('localStorage' in window) && window['localStorage'] !== null) ? window.localStorage : false ;
-    var queue = 
-
-    if(lStore && lStore.getItem('NetflixQList')) {
-        $('.prev').fadeIn(300).click(function(e) {
-            e.preventDefault();
-            input.val(lStore.getItem('previous'));
-            form.submit();
-        });
-    }
-
+    // var queue = 
+    // 
+    // if(lStore && lStore.getItem('NetflixQList')) {
+    //     $('.prev').fadeIn(300).click(function(e) {
+    //         e.preventDefault();
+    //         input.val(lStore.getItem('previous'));
+    //         form.submit();
+    //     });
+    // }
+    // 
 
     var init = function() {
         //Load Array of Data
