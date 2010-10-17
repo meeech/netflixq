@@ -20,7 +20,6 @@ var init = function() {
 
     Y.one(selectors.BUTTONS_CONTAINER).delegate('click', function(e) {
 
-        //@todo clone and animate to show click.
         var row = e.target.ancestor('.agMovie');
 
         //Will use titleEl as an indicator of which page we on
@@ -53,6 +52,35 @@ var init = function() {
             //Disable/remove the button?.
             // window.console.log(response);
         });
+        
+        //@todo clone and animate to show click.
+        //Aaaand anumate the button.
+        window.console.log(e.target.getComputedStyle('width'));
+        var toAnim = e.target.cloneNode(true);
+            toAnim.setStyles({
+                display: "block",
+                position:"absolute",
+                width: e.target.getComputedStyle('width'), 
+                height: e.target.getComputedStyle('height'), 
+                top: (e.target.getY() - 10),
+                left: (e.target.getX() - 10)
+            });
+
+        Y.one("body").append(toAnim);
+
+/*
+        e.target.transition({
+            duration: 1, // seconds
+            easing: 'ease-out',
+            top: 0,
+            right: 0
+            // height: 0,
+            // padding: 0,
+            // opacity: 0
+        }, function() {
+            // e.target.remove().destroy(); 
+        });
+*/
 
     }, selectors.BUTTON_NETFLIXQ);
 };
