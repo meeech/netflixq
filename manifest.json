@@ -1,0 +1,12 @@
+{
+  "name": "Netflix-Q",
+  "version": "1.0",
+  "description": "Browsing Netflix, wanted to keep a list of to watch. Seems weird that's not built in, or I just can't find it.",
+  "browser_action": {
+    "default_icon": "star_black.png",
+    "popup": "netflixq.html"
+  },
+  "permissions": [
+    "http://www.netflix.ca/"
+  ]
+}

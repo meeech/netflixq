@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NetflixQ</title>
+<style>
+    #netflixq {
+        list-style: none;
+        width: 300px;
+    }
+</style>
+
+    <script type="text/javascript" src="
+    simpleyui-min.js"></script>
+
+</head>
+<body>
+    <div>
+        <ul id="netflixq">
+            <li><a href="#">City of Ember</a></li>
+        </ul>
+    </div>
+
+<script type="text/javascript" charset="utf-8">
+    //We can assume capabilities of chrome browser, but we'll do it this way anyhow.
+    var lStore = (('localStorage' in window) && window['localStorage'] !== null) ? window.localStorage : false ;
+    var queue = 
+
+    if(lStore && lStore.getItem('NetflixQList')) {
+        $('.prev').fadeIn(300).click(function(e) {
+            e.preventDefault();
+            input.val(lStore.getItem('previous'));
+            form.submit();
+        });
+    }
+
+
+    var init = function() {
+        //Load Array of Data
+        //Add new movie
+        //Paint List
+            
+    };
+    
+    Y.on('domready', init);
+
+</script>
+</body>
+</html>

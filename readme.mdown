@@ -1,0 +1,17 @@
+NetflixQ
+========
+
+Chrome Extension to keep a list of Netflix movies I'd like to watch. 
+
+I suppose I could just bookmark them, and I wanted to play with making an extension,
+
+Seems like a simple enough use case.
+
+* When clicked on a Netflix page, will add the to the list, and display the list. 
+* When clicked on an NON-Netflix, will display the list. 
+
+todo
+----
+
+* Change that behaviour. Really, want click to just add it to the list, don't know if we have to show the list.
+* Learn how to make contextual menu instead for the icon, so view can be separate, at anytime. 
