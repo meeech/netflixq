@@ -106,15 +106,15 @@ function saveList (toSave) {
     lStore.setItem('NetflixQList', JSON.stringify(toSave));
 }
 
-var lis = [],
-    liTemp = '<div id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></div>';
+var movies = [],
+    movieTemp = '<div id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></div>';
 
 Y.each(getList(), function(v,k) {
-    lis.push(Y.Lang.sub(liTemp, v));
+    movies.push(Y.Lang.sub(movieTemp, v));
 });
 
-if(lis.length > 0) {
-    Y.one(selectors.Q_LIST).setContent(lis.join(''));
+if(movies.length > 0) {
+    Y.one(selectors.Q_LIST).setContent(movies.join(''));
 }
 
 //Clicks on the remove box
