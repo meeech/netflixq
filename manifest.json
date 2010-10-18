@@ -1,11 +1,8 @@
 {
   "name": "netflixQ",
-  "version": "0.1.4",
-  "description": "Browsing Netflix.ca, wanted to keep a list of to watch. Seems weird that's not built in, or I just can't find it :/.",
+  "version": "1.0.0",
+  "description": "Add digital queue functionality to netflix.ca.",
   "background_page": "background.html",
-  "permissions": [
-    "tabs"
-  ],
   "browser_action": {
     "default_icon": "star_red.png",
     "popup": "netflixq.html"

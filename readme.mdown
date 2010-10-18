@@ -29,6 +29,14 @@ Feedback welcome through github, or via twitter: @meeech
 
 I use some icons from [Circular Icons](http://prothemedesign.com/circular-icons/).
 
+Technical
+---------
+
+* background.html: Receives message with content of movie from pagescript.js. handles placing it into localStorage store.
+* netflixq.css: Overrides some css styles for netflix.ca. 
+* netflixq.html: This is the code for the pop-up panel when you click on the star.
+* pagescript.js: Script that injects the netflixQ button, handles the clicks.
+
 **todo**
 
 * look into making badge show number of movies in list? 
