@@ -14,8 +14,8 @@ function saveList (toSave) {
 chrome.extension.onRequest.addListener( 
     function(request,sender, sendResponse) {
         //Get Queue list
-        var nq = getList();
-        
+        var nq = getList() || {};
+
         //Add the requested one
         nq[request.id] = request;
         
