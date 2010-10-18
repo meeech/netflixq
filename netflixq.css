@@ -1,8 +1,13 @@
 /* Override some netflix.ca defaults for btns*/
 .btn.netflixq {
-    background-color: #aaa;
+    background-color: #000;
     cursor: pointer;
     font-size: 1em !important;
     margin-bottom: 7px !important;
     margin-top: 7px !important;
+    padding: 5px;
+}
+
+.q {
+    color: #b9090b;
 }

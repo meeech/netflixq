@@ -6,7 +6,7 @@ var selectors = {
     BUTTON_NETFLIXQ: '.netflixq'
 };
 
-var button = '<a class="netflixq btn watchlk">netflixQ</a>';
+var button = '<a class="netflixq btn watchlk">netflix<span class="q">Q</span></a>';
 
 // netflix creates some ids like m70102568_0, m70102568_1 and so forth for different elements
 // in the page for a particular movie. use this to extract the uuid part.
@@ -55,32 +55,27 @@ var init = function() {
         
         //@todo clone and animate to show click.
         //Aaaand anumate the button.
-        window.console.log(e.target.getComputedStyle('width'));
-        var toAnim = e.target.cloneNode(true);
-            toAnim.setStyles({
+        var toAnim = e.target.cloneNode(true)
+            .setStyles({
                 display: "block",
                 position:"absolute",
                 width: e.target.getComputedStyle('width'), 
                 height: e.target.getComputedStyle('height'), 
-                top: (e.target.getY() - 10),
-                left: (e.target.getX() - 10)
+                top: e.target.getY(),
+                left: e.target.getX()
             });
 
         Y.one("body").append(toAnim);
 
-/*
-        e.target.transition({
-            duration: 1, // seconds
-            easing: 'ease-out',
+        toAnim.transition({
+            duration: 2, // seconds
+            easing: 'bounce-out',
             top: 0,
-            right: 0
-            // height: 0,
-            // padding: 0,
-            // opacity: 0
-        }, function() {
-            // e.target.remove().destroy(); 
+            left: e.target.get('winWidth')+'PX',
+            height: 0,
+            width: 0,
+            opacity: 0
         });
-*/
 
     }, selectors.BUTTON_NETFLIXQ);
 };
