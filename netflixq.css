@@ -11,3 +11,8 @@
 .q {
     color: #b9090b;
 }
+
+/* Fix the qsliders on the home page - their height doesn't expect the buttons, cuts off stars */
+.qSlider{
+    height: 300px !important;
+}
