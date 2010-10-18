@@ -1,6 +1,8 @@
 netflixQ
 ========
 
+[extension](https://chrome.google.com/extensions/detail/fjbfidbblfnfbgniilajdlnfdoefbabj?hl=en)
+
 What?
 -----
 
