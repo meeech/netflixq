@@ -1,15 +1,15 @@
-NetflixQ
+netflixQ
 ========
 
 What?
 -----
 
-Chrome Extension to keep a list of Netflix movies to watch. 
+Chrome Extension to build a list of Netflix instant movies to watch. 
 
 **Features**
 
 * Adds a **netflixQ** button under Play button. Click that, and it will add to your list.
-* Click on the Yellow Star icon in your toolbar, and you will see your list of movies you want to watch.
+* Click on the Red Star icon in your toolbar, and you will see your list of movies you want to watch.
 
 Why?
 ----
