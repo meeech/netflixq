@@ -7,7 +7,7 @@
     "tabs"
   ],
   "browser_action": {
-    "default_icon": "star_black.png",
+    "default_icon": "star_red.png",
     "popup": "netflixq.html"
   },
   "content_scripts": [

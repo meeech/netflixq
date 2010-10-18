@@ -27,3 +27,4 @@ If you have any issues or problems to report, best way is through the github rep
 
 Feedback welcome through github, or via twitter: @meeech
 
+I use some icons from [Circular Icons](http://prothemedesign.com/circular-icons/).
