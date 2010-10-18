@@ -29,6 +29,11 @@ Feedback welcome through github, or via twitter: @meeech
 
 I use some icons from [Circular Icons](http://prothemedesign.com/circular-icons/).
 
+There be Dragons
+----------------
+
+* I don't have access to netflix.com - so I don't know if it works with that site - I can only assume they serve up the same markup. let me know!
+
 Technical
 ---------
 
@@ -36,6 +41,11 @@ Technical
 * netflixq.css: Overrides some css styles for netflix.ca. 
 * netflixq.html: This is the code for the pop-up panel when you click on the star.
 * pagescript.js: Script that injects the netflixQ button, handles the clicks.
+
+Uses yui3. 
+
+thanks
+m.
 
 **todo**
 

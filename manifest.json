@@ -1,7 +1,7 @@
 {
   "name": "netflixQ",
-  "version": "1.0.1",
-  "description": "Add digital queue functionality to netflix.ca.",
+  "version": "1.0.2",
+  "description": "Add queue functionality to netflix.ca for digital/instant movies.",
   "background_page": "background.html",
   "browser_action": {
     "default_icon": "star_red.png",
