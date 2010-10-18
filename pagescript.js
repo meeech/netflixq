@@ -68,9 +68,9 @@ var init = function() {
         Y.one("body").append(toAnim);
 
         toAnim.transition({
-            duration: 2, // seconds
-            easing: 'bounce-out',
-            top: 0,
+            duration: 1, // seconds
+            easing: 'ease-out-strong',
+            top: e.target.get('docScrollY')+'PX',
             left: e.target.get('winWidth')+'PX',
             height: 0,
             width: 0,

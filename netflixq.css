@@ -2,10 +2,10 @@
 .btn.netflixq {
     background-color: #000;
     cursor: pointer;
-    font-size: 1em !important;
+    font-size: .9em !important;
     margin-bottom: 7px !important;
     margin-top: 7px !important;
-    padding: 5px;
+    padding: 3px;
 }
 
 .q {
