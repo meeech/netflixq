@@ -1,6 +1,6 @@
 {
   "name": "netflixQ",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add digital queue functionality to netflix.ca.",
   "background_page": "background.html",
   "browser_action": {
@@ -9,7 +9,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://www.netflix.ca/*"],
+      "matches": ["http://www.netflix.ca/*","http://www.netflix.com/*"],
       "js": ["simpleyui-min.js", "pagescript.js"],
       "css": ["netflixq.css"]
     }
