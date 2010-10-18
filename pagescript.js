@@ -55,14 +55,14 @@ var init = function() {
         
         //@todo clone and animate to show click.
         //Aaaand anumate the button.
-        var toAnim = e.target.cloneNode(true)
+        var toAnim = e.currentTarget.cloneNode(true)
             .setStyles({
                 display: "block",
                 position:"absolute",
-                width: e.target.getComputedStyle('width'), 
-                height: e.target.getComputedStyle('height'), 
-                top: e.target.getY(),
-                left: e.target.getX()
+                width: e.currentTarget.getComputedStyle('width'), 
+                height: e.currentTarget.getComputedStyle('height'), 
+                top: e.currentTarget.getY(),
+                left: e.currentTarget.getX()
             });
 
         Y.one("body").append(toAnim);
@@ -70,8 +70,8 @@ var init = function() {
         toAnim.transition({
             duration: 1, // seconds
             easing: 'ease-out-strong',
-            top: e.target.get('docScrollY')+'PX',
-            left: e.target.get('winWidth')+'PX',
+            top: e.currentTarget.get('docScrollY')+'PX',
+            left: e.currentTarget.get('winWidth')+'PX',
             height: 0,
             width: 0,
             opacity: 0
