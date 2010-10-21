@@ -3,8 +3,7 @@ Y.use('node', function(Y) {
 var selectors = {
     PLAY_WRAPPER: '.btnWrap',
     BUTTONS_CONTAINER: '.main-content',
-    BUTTON_NETFLIXQ: '.netflixq',
-    MODDED: 'modded'
+    BUTTON_NETFLIXQ: '.netflixq'
 };
 
 var button = '<a class="netflixq btn watchlk">netflix<span class="q">Q</span></a>';
@@ -30,9 +29,7 @@ var init = function() {
             var pane = sliderParent.one('.qSlider-currentPane');
             //If a netflix button is found in the container, then we know its already been modded
             if(Y.Lang.isNull(pane.one(selectors.BUTTON_NETFLIXQ))) {
-                pane.addClass(selectors.MODDED)
-                .all(selectors.PLAY_WRAPPER)
-                .insert(button);
+                pane.all(selectors.PLAY_WRAPPER).insert(button);
             }
 
         }, [e.currentTarget.ancestor('.qSlider')]);
