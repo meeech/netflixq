@@ -22,19 +22,22 @@ var init = function() {
     //This is kinda tricky. Its laoding the panels ajax, so I need to know when the 
     //xhr has finished, and not quite sure how to do it? Open to suggestions plz
     //in the mean time, it's a hack.
-    Y.one('.mrows').delegate('click', function(e) {
-        //Assume the request comes in :) 
-        //there must be a better way to do this?
-        Y.later(2000, {}, function(sliderParent) {
-            var pane = sliderParent.one('.qSlider-currentPane');
-            //If a netflix button is found in the container, then we know its already been modded
-            if(Y.Lang.isNull(pane.one(selectors.BUTTON_NETFLIXQ))) {
-                pane.all(selectors.PLAY_WRAPPER).insert(button);
-            }
+    var sliderContainer = Y.one('.mrows');
+    if(!Y.Lang.isNull(sliderContainer)) {
+        sliderContainer.delegate('click', function(e) {
+            //Assume the request comes in :) 
+            //there must be a better way to do this?
+            Y.later(2000, {}, function(sliderParent) {
+                var pane = sliderParent.one('.qSlider-currentPane');
+                //If a netflix button is found in the container, then we know its already been modded
+                if(Y.Lang.isNull(pane.one(selectors.BUTTON_NETFLIXQ))) {
+                    pane.all(selectors.PLAY_WRAPPER).insert(button);
+                }
 
-        }, [e.currentTarget.ancestor('.qSlider')]);
+            }, [e.currentTarget.ancestor('.qSlider')]);
 
-    }, '.qSlider-navNext,.qSlider-navPrev');
+        }, '.qSlider-navNext,.qSlider-navPrev');
+    };
 
     Y.one(selectors.BUTTONS_CONTAINER).delegate('click', function(e) {
 
