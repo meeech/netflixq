@@ -3,7 +3,8 @@ Y.use('node', function(Y) {
 var selectors = {
     PLAY_WRAPPER: '.btnWrap',
     BUTTONS_CONTAINER: '.main-content',
-    BUTTON_NETFLIXQ: '.netflixq'
+    BUTTON_NETFLIXQ: '.netflixq',
+    MODDED: 'modded'
 };
 
 var button = '<a class="netflixq btn watchlk">netflix<span class="q">Q</span></a>';
@@ -17,6 +18,26 @@ var extractid = function(id) {
 var init = function() {
     //Add in the netflixQ button
     Y.all(selectors.PLAY_WRAPPER).filter(':not(.mltBtn-trailer)').insert(button);
+    
+    //Handle the Sliders.
+    //This is kinda tricky. Its laoding the panels ajax, so I need to know when the 
+    //xhr has finished, and not quite sure how to do it? Open to suggestions plz
+    //in the mean time, it's a hack.
+    Y.one('.mrows').delegate('click', function(e) {
+        //Assume the request comes in :) 
+        //there must be a better way to do this?
+        Y.later(2000, {}, function(sliderParent) {
+            var pane = sliderParent.one('.qSlider-currentPane');
+            //If a netflix button is found in the container, then we know its already been modded
+            if(Y.Lang.isNull(pane.one(selectors.BUTTON_NETFLIXQ))) {
+                pane.addClass(selectors.MODDED)
+                .all(selectors.PLAY_WRAPPER)
+                .insert(button);
+            }
+
+        }, [e.currentTarget.ancestor('.qSlider')]);
+
+    }, '.qSlider-navNext,.qSlider-navPrev');
 
     Y.one(selectors.BUTTONS_CONTAINER).delegate('click', function(e) {
 
