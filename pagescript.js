@@ -16,8 +16,8 @@ var extractid = function(id) {
 
 var init = function() {
     //Add in the netflixQ button
-    Y.all(selectors.PLAY_WRAPPER).filter(':not(.mltBtn-trailer)').insert(button);
-    
+    Y.all(selectors.PLAY_WRAPPER).filter(':not(.mltBtn-trailer)').insert(button);        
+
     //Handle the Sliders.
     //This is kinda tricky. Its laoding the panels ajax, so I need to know when the 
     //xhr has finished, and not quite sure how to do it? Open to suggestions plz
