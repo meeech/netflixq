@@ -1,6 +1,8 @@
-tips (for chrome extensions)
-----------------------------
+tips (for chrome extensions) random important stuff
+---------------------------------------------------
 
+* Content scripts execute in a special environment called an isolated world. They have access to the DOM of the page they are injected into, but not to any JavaScript variables or functions created by the page. It looks to each content script as if there is no other JavaScript executing on the page it is running on. The same is true in reverse: JavaScript running on the page cannot call any functions or access any variables defined by content scripts.
 * No need for onload checking in general. I used onload, and couldn't figure out why the script trigged on some pages but not others.    
 Just look at run\_at property in manifest. http://code.google.com/chrome/extensions/content_scripts.html
 * How to force reload of content_scripts?
+* Ok, so can structure a global.js content script, and then give access via Y.namespace to other scripts. see tvtext 
