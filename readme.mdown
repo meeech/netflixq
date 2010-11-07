@@ -35,8 +35,8 @@ There be Dragons
 ----------------
 
 * Sliders: I had to do a little hack to get the sliders working. It should work fine, as long as you have a decent connection. :) Let me know if you have any problems. I will be looking for a more robust solution.
-* I don't have access to netflix.com - so I don't know if it works with that site - I can only assume they serve up the same markup. let me know!
-* In case this isn't obvious, I and this extension have no relation to netflix.
+* Doesn't work for Netflix.com. I don't have access to Netflix.com, and am informed ([see comment](https://chrome.google.com/extensions/detail/fjbfidbblfnfbgniilajdlnfdoefbabj?hl=en)) they have that functionality already built in - which makes it even weirder that its not on the Canadian site.
+* In case this isn't obvious, I and this extension have no relation to Netflix.
 
 Technical
 ---------
