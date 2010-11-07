@@ -15,13 +15,12 @@ function saveList (toSave) {
 chrome.extension.onRequest.addListener( 
     function(request,sender, sendResponse) {
         //Get Queue list
-        var nq = getList() || {};
+        var nq = getList() || {},
+            id = request.id.match(/[\d].*/)[0];
 
-        //Add the requested one
-        nq[request.id] = request;
-        
+        //Add the requested one        
+        nq[id] = request;
         saveList(nq);
-        
         //Let the callee know what's up
         sendResponse(nq);
     }

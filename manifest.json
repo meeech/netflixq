@@ -1,6 +1,6 @@
 {
   "name": "netflixQ",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Add queue functionality to netflix.ca for digital/instant movies.",
   "background_page": "background.html",
   "browser_action": {
