@@ -11,7 +11,8 @@ var button = '<a class="netflixq btn watchlk">netflix<span class="q">Q</span></a
 // netflix creates some ids like m70102568_0, m70102568_1 and so forth for different elements
 // in the page for a particular movie. use this to extract the uuid part.
 var extractid = function(id) {
-    return id.slice(0, id.lastIndexOf('_'));        
+    var nId = id.slice(0, id.lastIndexOf('_'));
+    return nId.match(/[\d].*/)[0];
 };
 
 var init = function() {
@@ -53,8 +54,8 @@ var init = function() {
 
         //Listing, Grid, page
         if( Y.Lang.isNull(titleEl) ) {
-            link = row.one('.title a');
-            title = link.get('innerText');
+            link = row.one('a.btn-play');
+            title = row.one('.title a').get('innerText');
             url = link.get('href');
         } 
         else { //Movie View Page

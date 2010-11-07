@@ -125,6 +125,7 @@ var movies = [],
     movieTemp = '<div class="movie" id="{id}"><img width="16" height="16" class="remove" src="no.png"><a target="_blank" href="{url}">{title}</a></div>';
 
 Y.each(getList(), function(v,k) {
+    v.id = k;
     movies.push(Y.Lang.sub(movieTemp, v));
 });
 
@@ -135,8 +136,8 @@ if(movies.length > 0) {
 //Clicks on the remove box
 Y.one(selectors.Q_LIST).delegate('click', function(e) {
     var toRemove = e.target.ancestor('div');
-
     var nq = getList();
+
     if(!Y.Lang.isNull(nq)) {
         delete nq[toRemove.get('id')];
     }
