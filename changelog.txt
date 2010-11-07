@@ -1,6 +1,7 @@
 * 1.0.9 
 
 - Fix IDs. There were cases where you could add the same item - once on listing page, once on item page. This should stop that from happening now. (note: old items already in your list have the potential to be double added, if you Q them again.)
+- Fix undeletable items.
 
 * 1.0.8
 
