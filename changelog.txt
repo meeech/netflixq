@@ -1,0 +1,5 @@
+* 1.0.7
+
+- Add tooltips on hover showing full movie title.
+- Remove Netflix.com from manifest, since tool is useless there. see comment: https://chrome.google.com/extensions/detail/fjbfidbblfnfbgniilajdlnfdoefbabj?hl=en
+- Started changelog :)
