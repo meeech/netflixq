@@ -1,3 +1,7 @@
+* 1.1.1
+
+- Yet again, fix permission request for new canadian netflix domain. kinda wish netflix canada had some sort of dev support.
+
 * 1.1.0
 
 - Fix permission request for new canadian netflix domain. kinda wish netflix canada had some sort of dev support.
