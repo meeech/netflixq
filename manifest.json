@@ -1,17 +1,17 @@
 {
+  "manifest_version": 2,
   "name": "netflixQ",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Add queue functionality to Netflix Canada (netflix.ca) for digital/instant movies.",
-  "background_page": "background.html",
+  "background": { "scripts" : ["background.js"]},
   "browser_action": {
     "default_icon": "star_red.png",
-    "popup": "netflixq.html"
+    "default_popup": "netflixq.html"
   },
   "content_scripts": [
     {
-      "matches": ["http://ca.movies.netflix.com/*", "http://ca.netflix.com/*", "http://www.netflix.ca/*","http://search.netflix.ca/*"],
-      "js": ["simpleyui-min.js", "pagescript.js"],
-      "css": ["netflixq.css"]
+      "matches": ["http://movies.netflix.com/*", "http://ca.movies.netflix.com/*", "http://ca.netflix.com/*", "http://www.netflix.ca/*","http://search.netflix.ca/*"],
+      "js": ["simpleyui-min.js", "pagescript.js"]
     }
   ],
   "icons": { 
