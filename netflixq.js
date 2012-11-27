@@ -22,7 +22,7 @@ Y.each(getList(), function(v,k) {
     v.id = k;
     movies.push(Y.Lang.sub(movieTemp, v));
 });
-console.log(movies);
+
 if(movies.length > 0) {
     Y.one(selectors.Q_LIST).setContent(movies.join(''));
 }

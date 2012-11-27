@@ -1,32 +1,64 @@
 Y.use('node', function(Y) {
 
 var selectors = {    
-    DETAIL_PAGE: '#displaypage-overview-details',
-    PLAY_WRAPPER: '#displaypage-overview',
-    BUTTONS_CONTAINER: '.main-content',
-    BUTTON_NETFLIXQ: '.netflixq'
+    DETAIL_PAGE: '#displaypage-overview-details'
+    ,BUTTONS_CONTAINER: '.main-content'
+    ,BUTTON_NETFLIXQ: '.netflixq'
 };
-
-//Against my better judgement, styles need to go inline.
-//Netflix is doing some funky on page load, so my .css gets clobbered.
-var button = '<a class="netflixq" style="border-radius: 3px;background-color: #000;color: #fff;cursor: pointer;display: inline-block; font-size: 1.1em;font-weight: bold;margin-bottom: 7px;margin-top: 7px;padding: 6px;">netflix<span class="q" style="color: #ae1d00;">Q</span></a>';
 
 // netflix creates some ids like m70102568_0, m70102568_1 and so forth for different elements
 // in the page for a particular movie. use this to extract the uuid part.
-var extractid = function(id) {
-    var nId = id.slice(0, id.lastIndexOf('_'));
-    return nId.match(/[\d].*/)[0];
+var extractid = function(href) {
+    return href.match(/[\d].*?[&]/)[0];
 };
 
-var singlePage = function() {
+var saveMovie = function(movie) {
+    chrome.extension.sendMessage(movie, function(response) {
+        if(chrome.extension.lastError) {
+            console.log("Error:" + chrome.extension.lastError);
+        }
+    });
+}; 
+
+var createButton = function() {
+    // Y.Node.create()
+};
+
+var animButton = function(button) {
+
+    var toAnim = button.cloneNode(true)
+        .setStyles({
+            display: "block",
+            position:"absolute",
+            width: button.getComputedStyle('width'), 
+            height: button.getComputedStyle('height'), 
+            top: button.getY(),
+            left: button.getX()
+        });
+
+    Y.one("body").append(toAnim);
+
+    toAnim.transition({
+        duration: 1, // seconds
+        top: button.get('docScrollY')+'PX',
+        left: button.get('winWidth')+'PX',
+        opacity: 0
+    });
+
+};
+
+var detailPage = function() {
     var display = Y.one(selectors.DETAIL_PAGE);
     if(Y.Lang.isNull(display)) { return; }
+
+    //Against my better judgement, styles need to go inline.
+    //Netflix is doing some funky on page load, so my .css gets clobbered.
+    var buttonHTML = '<a class="netflixq" style="border-radius: 3px;background-color: #000;color: #fff;cursor: pointer;display: inline-block; font-size: 1.1em;font-weight: bold;margin-bottom: 7px;margin-top: 7px;padding: 6px;">netflix<span class="q" style="color: #ae1d00;">Q</span></a>';
     
-    display.insert(button);
+    display.insert(buttonHTML);
     
     display.delegate('click', function(e) {
-
-        var row = e.target.ancestor('.agMovie');
+        e.halt();
 
         var link = Y.one('div.displayPagePlayable a')
             ,title = e.container.one('h1.title').get('innerText')
@@ -34,44 +66,45 @@ var singlePage = function() {
             ;
 
         var movie = {
-            "id": link.get('href').match(/[\d].*?[&]/)[0]
+            "id": extractid(link.get('href'))
             ,"title": title
             ,"url": url
         };
 
-        chrome.extension.sendMessage(movie, function(response) {
-            if(chrome.extension.lastError) {
-                console.log("Error:" + chrome.extension.lastError);
-            }
-        });
-        var toAnim = e.currentTarget.cloneNode(true)
-            .setStyles({
-                display: "block",
-                position:"absolute",
-                width: e.currentTarget.getComputedStyle('width'), 
-                height: e.currentTarget.getComputedStyle('height'), 
-                top: e.currentTarget.getY(),
-                left: e.currentTarget.getX()
-            });
-
-        Y.one("body").append(toAnim);
-
-        toAnim.transition({
-            duration: 1, // seconds
-            top: e.currentTarget.get('docScrollY')+'PX',
-            left: e.currentTarget.get('winWidth')+'PX',
-            opacity: 0
-        });
-
+        saveMovie(movie);
+        animButton(e.currentTarget);
     }, selectors.BUTTON_NETFLIXQ);
     
     
 };
 
-var init = function() {
-    Y.log('init');
+var grids = function() {
+
+    var movies = Y.all('div.agMovie span.boxShot');
+    // if(Y.Lang.isNull(display)) { return; }
+    var buttonHTML = '<a class="netflixq" style="border-color: #fff; border-radius: 3px; border-width: 1px; background-color: #000;color: #fff;cursor: pointer;display: block; font-size: 1.1em;font-weight: bold;margin-bottom: 7px;margin-top: 7px;padding: 6px; position: absolute;bottom: 0;right: 0;z-index:14;">netflix<span class="q" style="color: #ae1d00;">Q</span></a>';
     
-    singlePage();
+    movies.insert(buttonHTML);
+    Y.one('body').delegate('click', function(e) {
+        e.halt();
+
+        var link = e.currentTarget.ancestor('span.boxShot').one('a.popLink')
+            ,movie = {
+                "id": extractid(link.get('href'))
+                ,"title": e.currentTarget.ancestor('span.boxShot').one('img').get('alt')
+                ,"url": link.get('href')
+            };
+        
+        saveMovie(movie);
+        animButton(e.currentTarget);
+    }, selectors.BUTTON_NETFLIXQ);
+
+};
+
+var init = function() {
+    
+    detailPage();
+    grids();
     
     //Add in the netflixQ button
     // Y.all(selectors.PLAY_WRAPPER).insert(button);
