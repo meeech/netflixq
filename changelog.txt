@@ -1,3 +1,9 @@
+* 1.1.2
+
+- Update for new Netflix layout
+- Update for Chrome extensions manifest v2
+- Removed some unneeded site permissions, since Canada now lives under movies.netflix.com
+
 * 1.1.1
 
 - Yet again, fix permission request for new canadian netflix domain. kinda wish netflix canada had some sort of dev support.
