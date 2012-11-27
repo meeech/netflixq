@@ -6,11 +6,11 @@ netflixQ
 What?
 -----
 
-Chrome Extension to build a list of Netflix instant movies to watch. 
+Chrome Extension to build a list of Netflix instant movies to watch. For the rest of the world that doesn't have Netflix Queue access. 
 
 **Features**
 
-* Adds a **netflixQ** button under Play button. Click that, and it will add to your list.
+* Adds a **netflixQ** button. Click that, and it will add to your list.
 * Click on the Red Star icon in your toolbar, and you will see your list of movies you want to watch.
 
 Why?
@@ -31,18 +31,12 @@ Feedback welcome through github, or via twitter: @meeech
 
 I use some icons from [Circular Icons](http://prothemedesign.com/circular-icons/).
 
-There be Dragons
-----------------
-
-* Sliders: I had to do a little hack to get the sliders working. It should work fine, as long as you have a decent connection. :) Let me know if you have any problems. I will be looking for a more robust solution.
-* Doesn't work for Netflix.com. I don't have access to Netflix.com, and am informed ([see comment](https://chrome.google.com/extensions/detail/fjbfidbblfnfbgniilajdlnfdoefbabj?hl=en)) they have that functionality already built in - which makes it even weirder that its not on the Canadian site.
-* In case this isn't obvious, I and this extension have no relation to Netflix.
+In case this isn't obvious, I and this extension have no relation to Netflix.
 
 Technical
 ---------
 
-* background.html: Receives message with content of movie from pagescript.js. handles placing it into localStorage store.
-* netflixq.css: Overrides some css styles for netflix.ca. 
+* background.js: Receives message with content of movie from pagescript.js. handles placing it into localStorage store.
 * netflixq.html: This is the code for the pop-up panel when you click on the star.
 * pagescript.js: Script that injects the netflixQ button, handles the clicks.
 
@@ -50,7 +44,3 @@ Uses yui3.
 
 thanks
 m.
-
-**todo**
-
-* look into making badge show number of movies in list? 
