@@ -39,7 +39,7 @@ var createButton = function(extraStyles) {
     
     //styles need to go inline.
     //Netflix is doing some funky on page load, so my .css gets clobbered, even with !important
-    return Y.Node.create('<a class="'+selectors.BUTTON_NETFLIXQ+'">netflix<span class="q" style="color: #ae1d00;">Q</span></a>')
+    return Y.Node.create('<a class="netflixq">netflix<span class="q" style="color: #ae1d00;">Q</span></a>')
         .setStyles(styles);
 };
 
