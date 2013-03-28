@@ -50,40 +50,4 @@ Y.one(selectors.Q_LIST).delegate('click', function(e) {
 }, selectors.REMOVE_TARGET);
 
 
-// Y.one(selectors.Q_LIST).delegate('mouseover', function(e) {
-//     showTooltip(e.target);
-// }, 'a');
-// 
-// Y.one(selectors.Q_LIST).delegate('mouseout', function(e) {
-//    hideTooltip(e.target);
-// }, 'a');
-
-
-// var showTooltip = function(node) {
-//     if(29 > node.get('innerHTML').length) {
-//         return;
-//     }
-// 
-//     var tt = node.getData('tt');
-// 
-//     if(!tt) {
-//         tt = new Y.Overlay({
-//             bodyContent: node.get('innerHTML'),
-//             align: { node: '#container', points: [Y.WidgetPositionAlign.BC, Y.WidgetPositionAlign.BC] }
-//         });
-//         tt.hide();
-//         tt.render(selectors.Q_LIST);
-//         node.setData('tt', tt);    
-//     }
-//     
-//     tt.show();
-// };
-// 
-// var hideTooltip = function(node) {
-//     var tt = node.getData('tt');
-//     if(tt) {
-//         tt.hide();
-//     }
-// };
-
 });
